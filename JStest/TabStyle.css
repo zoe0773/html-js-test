@@ -1,0 +1,12 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style:none;
+}
+
+.notice{
+	width: 298px;
+	height: 98px;
+	border: 1px solid #eee;
+	overflow: hidden;
+}

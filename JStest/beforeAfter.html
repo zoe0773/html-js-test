@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>insertBefore.html</title>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+  </head>
+  <body>
+       <ul>
+		 <li id="cq" name="chongqing">重庆</li>
+		 
+		 <li id="sh" name="shanghai">上海</li>
+		 <li id="bj" name="beijing">北京</li>
+	   </ul>
+  </body>
+  
+  <script language="JavaScript">
+
+  	
+  		//插入新的节点 <li id="tj" name="tianjin">天津</li> 到<li id="sh" name="shanghai">上海</li>这个节点
+	    // 如上海节点是最后一个节点插入到该节点的<li id="sh" name="shanghai">上海</li>的后面，
+	    // 否则插入到该节点的前面
+	    var tj = document.createElement("li");
+	    tj.setAttribute("id", "tj");
+	    tj.setAttribute("name", "tianjin");
+	    tj.appendChild(document.createTextNode("天津"));
+
+	    var sh = document.getElementById('sh');
+	    var parent = sh.parentNode;
+
+	    var last = parent.lastChild;
+	    if(last.id == "sh"){
+	    	parent.appendChild(tj);
+	    }else{
+	    	parent.insertBefore(tj, sh);
+	    }
+		
+//        //创建<li></li>
+// 		var tj = document.createElement("li");
+// 		//设置属性 <li id="tj" name="tianjin"></li>
+// 		tj.setAttribute("id","tj");
+// 		tj.setAttribute("name","tianjin");
+// 		//<li id="tj" name="tianjin">天津</li>
+// 		var tjText = document.createTextNode("天津");
+// 		tj.appendChild(tjText);
+		
+// 		//查找上海的节点
+// 		var sh = document.getElementById("sh");
+// 		//父节点
+// 		var parent = sh.parentNode;
+// 		//方法一
+// 		//查找上海的兄弟节点
+// //		var next = sh.nextSibling;
+// //		//上海节点是最后一个节点
+// //		if(next == null){
+// //			parent.appendChild(tj);
+// //		}
+// //		//上海节点不是最后一个节点
+// //		else{
+// //			parent.insertBefore(tj,sh);
+// //		}
+// 		//方法二
+// 		//查找父节点的最后一个节点
+// 		var last = parent.lastChild;
+// 		if(last.id == "sh"){
+// 			parent.appendChild(tj);
+// 		}
+// 		else{
+// 			parent.insertBefore(tj,sh);
+// 		}
+		
+	
+	   
+  </script>
+</html>

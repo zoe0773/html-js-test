@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>简单时钟</title>
+  <script type="text/javascript">
+  //呈现的时间格式如--23:36:45
+  	var t,h,m,s;
+  	function startTime(){
+  		//实例化日期对象
+  		var today = new Date();
+  		h = today.getHours();
+  		m = today.getMinutes();
+  		s = today.getSeconds();
+  		//如果时间数字小于10的时候在数字前面添加0 8:03:21
+  		m = checkTime(m);
+  		s = checkTime(s);
+  		document.getElementById('txt').innerHTML=h+":"+m+':'+s;//innerHTML属性，为id是txt的对象插入内容
+  		t = setTimeout(startTime,1000);
+  	}
+  	//检测时间数是否小于10，如果是在数字前加0
+  	function checkTime(i){
+  		if(i<10){
+  			i="0"+i;
+  		}
+  		return i;
+  	}
+  </script>
+ </head>
+ <body onload="startTime()">
+ 	<div id='txt'></div>
+ </body>
+</html>

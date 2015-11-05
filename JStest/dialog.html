@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="this is my page">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Dialog.html</title>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<form name="form1" action="test.html" method="post" >
+		客户id: <input type="text" name="cid" value=""  id="cid"  ><br>
+		客户名称<input type="text" name="cname" value=""  id="cname"  >
+		<input type="button" name="ok" value="请选择客户" onclick="openWin();"/>
+	</form>
+</body>
+<script type="text/javascript" charset="utf-8">
+	function openWin(){
+		
+	/*弹出窗口一：
+		window.showModalDialog("./a2.html",window,"status:no;resizable:yes;dialogHeight:210px;dialogWidth:360px;unadorne:yes");
+	}	
+	}*/
+	/*弹出窗口二：
+		window.showModelessDialog("./a2.html",window,"status:no;resizable:yes;dialogHeight:210px;dialogWidth:360px;unadorne:yes");*/
+	/*弹出窗口三：*/
+	window.open("./a2.html","_blank","height=200px,width=400px,status=yes,toolbar=no,menubar=no,location=no");
+	}
+	//封装
+	function setValue(id,name){
+		document.getElementById("cid").value = id;
+    	document.getElementById("cname").value = name;
+    }
+</script>
+</html>

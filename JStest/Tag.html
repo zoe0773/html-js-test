@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>TagName获取节点</title>
+</head>
+<body>
+  <p id="intro">我的课程</p>
+  <ul>
+    <li>JavaScript</li>
+    <li>HTML</li>
+    <li>JAVA</li>
+    <li>PHP</li>
+  </ul>
+  <script type="text/javascript">
+    var list = document.getElementsByTagName("li");
+    li = list[0];
+    document.write(list.length);
+    document.write(li.innerHTML);
+  </script>
+</body>
+</html>

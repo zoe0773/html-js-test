@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>demo</title>
+        <link rel="stylesheet" href="style1.css" />
+        	
+        </style>
+    </head>
+<body>
+    <p>员工信息录入</p>
+    <form name="empForm" id="empForm" method="post" action="user.html">
+		<table border=1>
+			<tr>
+				<td>真实姓名(不能为空 ,没有其他要求)</td>
+				<td><input type="text" id="realname" name="realname" />
+				</td>
+			</tr>
+			<tr>
+				<td>登录名(登录名不能为空,长度应该在5-8之间,可以包含中文字符(一个汉字算一个字符)):</td>
+				<td><input type="text" id="username" name="username" /></td>
+			</tr>
+			 <tr> 
+		      <td>密码(不能为空,长度6-12字符或数字,不能包含中文字符):</td>
+		      <td><input type="password" id="psw"  name="psw" style="width:120px" /></td>
+		    </tr>
+		    <tr> 
+		      <td>重复密码密码(不能为空,长度6-12字符或数字,不能包含中文字符):</td>
+		      <td><input type="password" id="psw2" name="psw2" style="width:120px" /></td>
+		    </tr>
+		    <tr>
+				<td>性别(必选其一)</td>
+				<td>
+				    <input  type="radio" id="gender_male" value="m" name="gender"/>男
+				    <input  type="radio" id="gender_female" value="f" name="gender"/>女
+				</td>
+			</tr>
+			<tr> 
+               <td>身份证(15或18为)</td>
+               <td><input type="text" id="cart"  name="cart" size=20 value="12345678912345555" /></td>
+            </tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="button"  name="ok"  id="ok"  value="保存" ></td>
+			</tr>
+		</table>
+</form>
+</body>
+<script language="JavaScript">
+/**************逻辑运算中的例子**********************************/
+//var username = document.getElementById("usernamesdfsdfsd");
+//if(!username){
+//	//alert("该对象不存在");
+//}
+//else{
+//	//alert(username.value);
+//}
+//
+//var i;
+//if(!i){
+//	//alert("该对象没有定义变量值");
+//}
+//
+//var cart = document.empForm.cart1111;
+//if(!cart){
+//	alert("该对象没有被定义！！！！");
+//}
+/******************************javaScript表单验证*****************************************/	
+
+window.onload = function(){
+   document.getElementById("ok").onclick = function(){
+   	/**<td>真实姓名(不能为空 ,没有其他要求)</td>
+   <td><input type="text" id="realname" name="realname" />*/
+   //验证姓名
+   		var realNa = document.getElementById("realname").value;
+   		if realNa==""| realNa==null| realNa=="undefined"){
+   			alert("真实姓名不能为空！");
+   			document.getElementById("realname").focus();
+   			return false;
+  		 }
+  		 
+  		 
+  		 var uname = document.getElementById("username").value;
+  		 //username = ltrim(rtrim(username));
+    	 if(uname == "" || uname == null || uname == "undefined"){
+			alert("登录名不能为空");
+			document.getElementById("username").focus();
+			return false;
+			}
+		 //验证文本的长度在5-8之间，可以包含中文字符(一个汉字算一个字符) 两种方式：
+  		 /*var pattern = /^[a-zA-Z0-9\u4e00-\u9fa5]{5,8}$/;//文本形式的正则表达式（相对简单好记）*/
+  		 var pattern = new RegExp("/^[a-zA-Z0-9\u4e00-\u9fa5]{5,8}$/");//使用构造器函数
+
+  		 //用定义的正则表达式与输入的值进行匹配
+  		 if (!pattern.test(uname)){
+  		 	alert("登录名长度应在5位到8位之间");
+			document.getElementById("username").focus();
+			return false;
+  		 }
+   }
+ }
+</script>
+
+</html>

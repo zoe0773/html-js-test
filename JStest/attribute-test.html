@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>getAttribute()</title>
+</head>
+<body>  
+	//通过attribute()方法获取LI标签的title值 
+	<p id="intro">课程列表：
+		<ul>
+ 			<li title="第一个li">HTML</li>
+ 			<li>CSS</li>
+ 			<li title="第三个li">JavaScript</li>
+ 			<li title="第四个li">JAVA</li>
+		</ul>	
+	</p>
+	<p>以下为获取的不为空的li标签title值：</p>	
+	<script type="text/javascript">
+		//获取li元素对象  得到是一个集合
+		var con = document.getElementsByTagName("li");
+		//获取li元素title属性的 属性值
+		for (var i = 0; i < con.length; i++) {
+			var text = con[i].getAttribute("title");
+			if (text!=null) {
+				document.write(text+"<br/>")
+			};
+		};
+	</script>
+</body>
+</html>

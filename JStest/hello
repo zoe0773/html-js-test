@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		
+	</style>
+
+</head>
+<body>
+	<input type="button" value="activeme" onclick="javascript:">
+	<script type="text/javascript">
+		function active(){
+			alert("hello!");
+		}
+	</script>
+</body>
+</html>

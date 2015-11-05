@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>childNodes</title>
+</head>
+<body>
+<div>
+  javascript<!--第一个子节点，nodeName为#text；nodeValue为文本本身javascript;nodeType为3-->
+  <p>javascript</p><!-- p第2个节点 nodeType:1标签--><!-- 空白节点3 nodeType:3 文本  -->
+  <div>jQuery</div><!-- div第4个节点 --><!-- 空白节点5 -->
+  <h5>PHP</h5><!-- h5第6个节点 --><!-- 空白节点7  -->
+</div>
+<script type="text/javascript">
+ var x = document.getElementsByTagName("p")[0].childNodes;
+ document.write(x.length);
+ for (var i = 0; i < x.length; i++) {
+ 	document.write(x[i].nodeName+x[i].nodeType+x[i].nodeValue);
+ };
+  /*var con = document.getElementsByTagName("div")[0].childNodes;
+ document.write("div的子节点一共有："+con.length+"个"+"<br/>");
+ for(var i=0; i<con.length; i++){
+     document.write("第"+(i+1)+"个子节点的名称为："+con[i].nodeName+"<br/>"+"子节点属性为："+con[i].nodeValue+"<br/>"+"子节点类型为："+con[i].nodeType+"<br/>"+"<br/>");
+     } */
+</script>
+</body>
+</html>
