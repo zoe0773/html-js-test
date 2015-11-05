@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>单选框、复选框</title>
+<style type="text/css">
+h2{color: red};
+hr{color: blue};
+<nav>
+</style>
+</head>
+<body>
+
+<hr>
+<h2>当type="radio" 所有单选按钮的"name"值必须一样才能切换单选</h2>
+<form action="save.php" method="post" >
+    <fieldset>
+        <legend>是否喜欢旅行：</legend>
+        <input id="lk" name="like" type="radio" value="喜欢"  />
+        <label for="lk">喜欢</label>
+        <input id="dlk" name="like" type="radio" value="不喜欢" />
+        <label for="dlk">不喜欢</label>
+        <input id="soso" name="like" type="radio" value="无所谓" />
+        <label for="soso">无所谓</label>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>请选择您喜欢的运动项目：</legend>
+        <input id="box1" name="box1" type="checkbox" value="跑步" checked="checked" />
+        <label for="box1">跑步</label>
+        <input id="box2" name="box1" type="checkbox" value="登山" />
+        <label for="box2">登山</label>
+        <input id="box3" name="box1" type="checkbox" value="打球" />
+        <label for="box3">打球</label>
+    </fieldset>
+</form>
+<br>
+<hr/>
+<h2>datalist元素    文本框内的提示内容</h2>
+<form method="post">
+	<p>
+	<label for="name">
+		Name:<input id="name" disabled name="name" placeholder="your name" />
+	</label>
+	</p>
+	<p>
+	<label for="city">
+		City:<input id="city" value="BEIJING" readonly name="city" placeholder="where you live" />
+	</label>
+	</p>
+	<p>
+	<label for="fav">
+		Fruit:<input list="favfr" id="fav" name="fav" placeholder="your faverite fruit" />
+	</label>
+	</p>
+	<button type="submit">Submit</button>
+	<button type="reset">Reset</button>
+</form>
+<datalist id="favfr">
+	<option value="Apple" label="lovely apple"></option>
+	<option value="Orange">refreshing</option>
+	<option value="Cherry"></option>
+</datalist>
+<hr>
+<h2>HTML5新增属性值test  除了number email属性类型  其它IE暂时没有反应</h2>
+<form>
+	<p>
+		Color:<input type="color" />
+		Date:<input type="date" />
+		Datetime:<input type="datetime" />
+		Month:<input type="month" />
+		email:<input type="email">
+		tel:<input type="tel">
+		number:<input type="number" />
+	</p>
+</form>
+<br>
+<hr>
+<h2>“type=number”的min、max属性+input使用required属性(必须提供目标元素的数据 才能提交表单)+“type=hidden/text/password/number/checkbox/renge/submit/reset/radio”</h2>
+<form>
+	<input type="hidden" name="aa" value="1234">
+	<p>
+	<label for="name">
+		Name:<input type="text" id="name" required name="name" placeholder="请输入name">
+	</label>
+	</p>
+    <p>
+	<label for="password">
+		Password:<input type="password" id="password" required name="password" >
+	</label>
+	</p>
+	<p>
+	<label for="cb">
+		必选才能提交表单:<input type="checkbox" id="cb" required name="cb" >
+	</label>
+	</p>
+    <p>
+	<label for="num">
+		必须输入数字:<input type="number" id="num" required name="num" min="1" value="2" max="100 " placeholder="请输入数字">
+	</label>
+	</p>
+	<label for="ren">
+		renge指定范围:<input type="renge" step="1" id="ren" required name="ren" min="1" value="1" max="101 " placeholder="请输入数字">
+	</label>
+	</p>
+	<input type="submit" name="submit" value="提交">
+	<input type="reset" name="reset" value="重置">
+</form>
+<hr>
+<h2>表单元素select(multiple/size属性)、optgroup、textarea</h2>
+<form method="post" action="">
+	<label for="fav">选择最喜欢的水果：
+	<select id="fav" name="fav"  size="7">
+		<optgroup label="Top Choices">
+		<option value="apple" selected label="Apple">APPLE</option>
+		<option value="bear" >bear</option>
+		</optgroup>
+		<optgroup label="Others">
+		<option value="cherry" >CHERRY</option>
+		<option value="orange" label="Orange">ORANGE</option>
+		</optgroup>
+	</select>
+	<h5>下拉列表框显示的是label内容，删除label显示option的内容 不会显示value内容</h5>
+	</label>
+	<textarea rows="5" required wrap="soft
+	      
+	      " cols="30" placeholder="多行文本输入……"></textarea>
+	<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

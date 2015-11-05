@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>垂直菜单+水平菜单</title>
+	<script src="D:\jscript\jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0;font-size: 14px;}
+		ul{
+			list-style: none;
+			height: 48px;
+			/*width: 100px;垂直菜单用*/
+			border-bottom: 10px solid #f60;
+			padding-left: 30px;
+		}
+		li{
+			float: left;
+			margin-top: 20px;
+		}
+		a{
+			text-decoration: none;
+			display: block;
+			height: 30px;
+			line-height: 30px;
+			width: 120px;
+			background-color: #ccc;
+			margin-bottom: 1px;
+			margin-left: 1px;
+			/*text-indent: 15px;垂直菜单用*/
+			text-align: center;
+		}
+		
+		.on,a:hover{
+			background-color: #f60;
+			color: #FFFFFF;	
+			border-radius: 5px;	
+			height: 40px;
+			line-height: 40px;
+			margin-top:-8px;/*用负值，向相反的方向移动*/	
+		}
+	</style>
+	<script type="text/javascript">
+		// $(function(){
+		// 	$('a').hover(
+		// 		function(){
+		// 			$(this).stop().animate({"width":"160px"}.200);
+		// 		}
+		// 		function(){
+		// 			$(this).stop().animate({"width":"120px"}.200);
+		// 		}
+		// 		)
+		// })
+	window.onload = function(){
+		var eleA = document.getElementsByTagName("a");		
+		for (var i = 0; i < eleA.length; i++) {
+			
+			eleA[i].onmouseover = function(){
+				clearInterval(sid);
+				var This = this;
+				var sid;
+				sid = setInterval(function(){
+					This.style.width = This.offsetWidth+8+"px";
+					if(This.offsetWidth>=160){
+						
+						clearInterval(sid);
+					}
+				}, 50)
+			};
+			eleA[i].onmouseout = function(){
+				clearInterval(sid);
+				var This = this;
+				var sid;
+				sid = setInterval(function(){
+					This.style.width = This.offsetWidth-8+"px";
+					if(This.offsetWidth<=120){
+						This.style.width = "120px";
+						clearInterval(sid);
+					}
+				}, 50)
+			};
+		}
+	}
+	</script>
+</head>
+<body>
+	<ul>
+		<li><a class="on" href="#">首　　页</a></li><!--首页中间的空格：（全角）shift+空格 -->
+		<li><a href="#">新闻快讯</a></li>
+		<li><a href="#">产品展示</a></li>
+		<li><a href="#">售后服务</a></li>
+		<li><a href="#">联系我们</a></li>
+	</ul>
+</body>
+</html>

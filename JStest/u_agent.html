@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>navigator</title>
+<script type="text/javascript">
+  function validB(){ 
+    var u_agent = navigator.userAgent;
+    var brownName="不是想用的主流浏览器！";
+    if(u_agent.indexOf("Firefox")>-1){
+      brownName = "Firefox";
+    }
+    if (u_agent.indexOf("Chrom")>-1) {
+      brownName = "Chrom";
+    }
+    if (u_agent.indexOf("Trident")>-1) {
+      brownName = "IE11";
+    };
+    document.write("浏览器名称："+brownName+"<br/>");
+    document.write(u_agent);
+  } 
+</script>
+</head>
+<body>
+  <form>
+     <input type="button" value="查看浏览器"  onclick="validB()" >
+  </form>
+</body>
+</html>

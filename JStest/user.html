@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>添加用户</title>
+	</head>
+	<body>
+		<center>
+			<br><br>
+			添加用户:<br><br>
+			姓名: <input type="text" name="name" id="name" />&nbsp;&nbsp;
+			email: <input type="text" name="email" id="email" />&nbsp;&nbsp;
+			电话: <input type="text" name="tel" id="tel" /><br><br>
+			<button id="addUser">提交</button>
+			<br><br>
+			<hr>
+			<br><br>
+			<table id="usertable" name="tb" border="1" cellpadding="5" cellspacing=0>
+				<tbody>	
+					<tr>
+						<th>姓名</th>
+						<th>email</th>
+						<th>电话</th>
+						<th>&nbsp;</th>
+					</tr>
+					<tr>
+						<td>Tom</td>
+						<td>tom@tom.com</td>
+						<td>5000</td>
+						<td><a href="deleteEmp?id=Tom">Delete</a></td>
+					</tr>
+					<tr>
+						<td>Jerry</td>
+						<td>jerry@sohu.com</td>
+						<td>8000</td>
+						<td><a href="deleteEmp?id=Jerry">Delete</a></td>
+					</tr>
+					
+				</tbody>	
+			</table>
+		</center>
+	</body>
+	<script language="JavaScript">
+		// window.onload = function(){
+		// 	document.getElementById("addUser").onclick = function(){
+		// 		//获取需要插入到table中的值
+		// 		/**
+		// 		 *  姓名: <input type="text" name="name" id="name" />&nbsp;&nbsp;
+		// 			email: <input type="text" name="email" id="email" />&nbsp;&nbsp;
+		// 			电话: <input type="text" name="tel" id="tel" /><br><br>
+		// 		 */
+		// 		var name = document.getElementById("name").value;
+		// 		var email = document.getElementById("email").value;
+		// 		var tel = document.getElementById("tel").value;
+		// 		/**
+		// 		 *  <tr>
+		// 				<td>Jerry</td>
+		// 				<td>jerry@sohu.com</td>
+		// 				<td>8000</td>
+		// 				<td><a href="deleteEmp?id=Jerry">Delete</a></td>
+		// 			</tr>
+		// 		 */
+		// 		//创建td
+		// 		//<td>Jerry</td>
+		// 		var tdName = document.createElement("td");
+		// 		var tdNameText = document.createTextNode(name);
+		// 		tdName.appendChild(tdNameText);
+				
+		// 		var tdEmail = document.createElement("td");
+		// 		var tdEmailText = document.createTextNode(email);
+		// 		tdEmail.appendChild(tdEmailText);
+				
+		// 		var tdTel = document.createElement("td");
+		// 		var tdTelText = document.createTextNode(tel);
+		// 		tdTel.appendChild(tdTelText);
+				
+		// 		//<td><a href="deleteEmp?id=Jerry">Delete</a></td>
+		// 		var tdDelete = document.createElement("td");
+		// 		//<a href="deleteEmp?id=Jerry"></a>
+		// 		var aE = document.createElement("a");
+		// 		aE.setAttribute("href","deleteEmp?id="+name);
+		// 		//<a href="deleteEmp?id=Jerry">Delete</a>
+		// 		var deleteText = document.createTextNode("Delete");
+		// 		aE.appendChild(deleteText);
+		// 		tdDelete.appendChild(aE);
+				
+		// 		//创建tr，并添加4个td
+		// 		var tr = document.createElement("tr");
+		// 		tr.appendChild(tdName);
+		// 		tr.appendChild(tdEmail);
+		// 		tr.appendChild(tdTel);
+		// 		tr.appendChild(tdDelete);
+				
+		// 		/**
+		// 		 * 
+		// 		 * <table id="usertable" border="1" cellpadding="5" cellspacing=0>
+		// 		<tbody>	
+		// 		 */
+		// 		var usertable = document.getElementById("usertable");
+		// 		//添加tr到tbody，IE浏览器支持，火狐浏览器不支持
+		// 		//usertable.firstChild.appendChild(tr);
+		// 		//IE浏览器和火狐浏览器都支持
+		// 		//创建tbody，将tr添加到tbody中，并将tbody放置到table中
+		// 		var tbody = document.createElement("tbody");
+		// 		tbody.appendChild(tr);
+		// 		usertable.appendChild(tbody);
+				
+		// 		//删除tr
+		// 		aE.onclick = function(){
+		// 			return deleteTr(this);
+		// 		}
+		// 	}
+		// 	function deleteTr(aE){
+		// 		/**
+		// 		 *  <tr>
+		// 				<td>Jerry</td>
+		// 				<td>jerry@sohu.com</td>
+		// 				<td>8000</td>
+		// 				<td><a href="deleteEmp?id=Jerry">Delete</a></td>
+		// 			</tr>
+		// 		 */
+		// 		var name = aE.parentNode.parentNode.firstChild.firstChild.nodeValue;
+		// 		var flag = window.confirm("您确定要删除【"+name+"】吗？")
+		// 		if(flag){
+		// 			//删除tr
+		// 			var parentTr = aE.parentNode.parentNode.parentNode;
+		// 			var tr = aE.parentNode.parentNode;
+		// 			parentTr.removeChild(tr);
+		// 		}
+		// 		return false;
+		// 	}
+		// }
+		window.onload = function(){
+			//当单击提交按钮时，获取name,tel,email的值并创建tr、td到table中。
+			document.getElementById('addUser').onclick = 
+			function(){
+				//获取元素的值
+				var name = document.getElementById('name').value;
+				var email = document.getElementById('email').value;				
+				var tel = document.getElementById('tel').value;
+				//创建新的元素
+				var trName = document.createElement("tr");
+				//<td>name<td>
+				var tdName = document.createElement("td");
+				var tdNameText = document.createTextNode(name);
+				tdName.appendChild(tdNameText);
+				//<td>email<td>
+				var tdEmail = document.createElement("td");
+				var tdEmailText = document.createTextNode(email);
+				tdEmail.appendChild(tdEmailText);
+				//<td>tel<td>
+				var tdTel = document.createElement("td");
+				var tdTelText = document.createTextNode(tel);
+				tdTel.appendChild(tdTelText);
+				//<td><a href="">删除</a></td>
+				var tdDel = document.createElement("td");
+				var tdA  = document.createElement("a");
+				tdA.setAttribute("href", "deleteEmp?id="+name);
+				var ate = document.createTextNode("delete");
+				tdA.appendChild(ate);
+				tdDel.appendChild(tdA);
+				//将td添加到tr
+				trName.appendChild(tdName);
+				trName.appendChild(tdEmail);
+				trName.appendChild(tdTel);
+				trName.appendChild(tdDel);
+
+				//创建一个新的tbody，并将新的tr放到tbody中，将tbody放到table中
+				var tbd = document.createElement("tbody");
+				//tr放到tbody中
+				tbd.appendChild(trName);
+				//把tbody放进table
+				document.getElementById('usertable').appendChild(tbd);
+			tdA.onclick = function(){
+				return deleteTr(this);
+					}
+		}
+			      /*  <tr>
+						<td>Jerry</td>
+						<td>jerry@sohu.com</td>
+						<td>8000</td>
+						<td><a href="deleteEmp?id=Jerry">Delete</a></td>
+					</tr>*/
+
+			
+			function deleteTr(tdA){
+				var name = tdA.parentNode.parentNode.firstChild.firstChild.nodeValue;	
+				var flag = window.confirm("确定要删除["+name+"]吗？");//返回布尔值，根据布尔值来判断
+				if(flag){
+					//删除tr
+					tdA.parentNode.parentNode.parentNode.removeChild(tdA.parentNode.parentNode);
+				}
+				return false;
+			}
+
+	}
+	</script>
+</html>

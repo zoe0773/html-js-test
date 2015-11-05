@@ -1,0 +1,36 @@
+<html>
+ <head><title>登陆页面</title></head>
+ <body>
+   <h1>登陆页面</h1>
+   <form action="???" method="get">
+    用户名：<input type="text" name="username" /></br></br>
+	密&nbsp;&nbsp;码: <input type="password" name="pwd" /></br></br>
+	<input type="submit" value="登录" /><input type="reset" value="重新填写" />
+   </form>
+   </br>
+   ***********input元素 复选框******************</br></br>
+	<input type="checkbox" name="f" />西瓜</br>
+	<input type="checkbox" name="f" />苹果</br></br></br>
+
+	***********input元素 单选框******************</br></br>
+	<input type="radio" name="sex" />男</br>
+	<input type="radio" name="sex" />女</br>
+
+	</br></br></br>
+	*************隐藏域*不显示在界面，但是向服务器提交数据*******************</br></br></br>
+	<input type="hidden" value="123" name="sal" /></br></br>
+	*************select下拉选择框*服务器接收的是value的值，不接受汉字。*************</br>
+	请选择你的出生地：
+	<select name="birthadd">
+	<option value="">---请选择---</option>
+	 <option value="bj">北京</option>
+	 <option value="sh">上海</option>
+	 <option value="gz">广州</option>
+	</select>
+	</br></br>
+	*************文本域textarea****************</br>
+	<textarea cols="30" rows="10">请输入......</textarea>
+</br>***************请选择你要上传的文件********************
+  请选择文件：<input type="file" name="f1" />
+ </body>
+</html>

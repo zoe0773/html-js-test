@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+//乘法口诀
+	/*function ji_suan(){
+		var p = window.prompt();//获取页面输入的数值
+		if(isNaN(p)){
+			alert("请输入一个数字");
+		}else{
+			
+				for(var i=1;i<=p; i++){ //第i行
+					for(var n=1; n<=i; n++ ){ //第n列
+						document.write(n+"*"+i+"="+n*i);
+						document.write("&nbsp&nbsp&nbsp&nbsp");
+					}
+					document.write("<br /><br />");
+			}			
+		}
+	}
+
+	//ji_suan();
+
+//金字塔
+	function jzt(){
+		//p = window.prompt();
+		var p = window.prompt("请问要打印几层金字塔：请输入要打印的数字！");
+		for (var i = 1; i <= p; i++) {//i行
+			for(var j=1; j<=p-i; j++){//j列
+				document.write("&nbsp");//输出空格
+			} 
+			for(var j=1; j<=2*i-1; j++){
+				document.write("*");
+			}
+			document.write("<br />");
+		}
+		
+}
+	//jzt();
+
+	
+	var arr = [3,5,1,3.4,2,50];
+	var ztz="";
+		for (var i = 0; i < arr.length; i++) {
+			ztz+=arr[i];
+			
+		}
+	//alert("总体重："+ztz);
+	
+	function SuperType(name){
+		this.name = name;
+		this.color = ['red','blue','green'];
+	}
+	SuperType.prototype.sayName = function(){
+			alert(this.name);
+		};
+	//alert(SuperType);*/
+
+	function Foo() {
+		var i = 0;
+		return function() {
+			console.log(i++);
+		}
+	}
+
+	var f1 = Foo(),	f2 = Foo();
+	f1();//0 f1指向同一个引用地址
+	f1();//1
+	f2();//0 f2 开辟新的地址
+
+	/*反转reverse()
+	var val = [1,3,2,5,8,4]
+	val.reverse();
+	alert(val); //输出 4,8,5,2,3,1  反转 并不是降序排列。如果数组是[1,2,3,4,5,6,7]将会呈现降序的效果。*/
+
+	var nums = [3,4,5,6];
+	var eve = nums.every(function(item,index,array){
+			return (item>2);
+	})
+	alert(eve);//返回值为true；如果数组里有任意一个项的值等于2或者小于2，结果都会返回false。
+
+	function Person(){
+
+	}
+
+	//var p = new Person();  当在这里实例对象，下面再访问p.sayName()时，则会出错。因为这里的[[Prototype]]指向的是最初的原型对象，而最初的原型对象里除了有一个constructor属性外，没有其它属性，所以访问不到而出错。参考《javascript高程》第六章--p154-p157
+	
+	Person.prototype = {
+		constructor:Person,//字面量重写了Person的原型，用字面量方法封装原型constructor就不再指向原来的Person构造函数，而成为一个新原型对象的属性，指向的是一个object构造函数
+		name:"aaa",
+		age:23,
+		sayName:function(){
+			alert(this.name);
+		}		
+	};
+
+	var p = new Person();
+	alert(p.name);
+	alert(p.constructor);
+	p.sayName();
+</script>
+</body>
+</html>

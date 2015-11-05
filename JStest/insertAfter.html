@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>insertBefore.html</title>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+  </head>
+  <body>
+       <ul>
+	   	 <li id="bj" name="beijing">北京</li>
+		 <li id="sh" name="shanghai">上海</li>
+		 <li id="cq" name="chongqing">重庆</li>
+	   </ul>
+  </body>
+  
+  <script language="JavaScript">
+  	//DOM里面并没有insertAfter() 下面自己写并实现 
+  	//插入新的节点 <li id="tj" name="tianjin">天津</li>
+	// 在  <li id="sh" name="shanghai">上海</li>的后面
+	//创建<li>天津<li>并设置属性与文本 
+	var tj = document.createElement("li");
+	tj.setAttribute("id","tj");
+	tj.setAttribute("name","tianjin");
+	tj.appendChild(document.createTextNode("天津"));
+	//获取父节点，并找到上海的相邻节点，将tj插入到相邻节点之前等于上海之后
+	var sh = document.getElementById('sh');
+	var pn = sh.parentNode;
+	var cq = sh.nextSibling;
+	pn.insertBefore(tj,cq);
+  </script>
+</html>

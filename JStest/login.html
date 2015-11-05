@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>团购——限时抢</title>
+<style type="text/css">
+	div,img{
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+
+.content3{
+  background:url(http://img.mukewang.com/534d13940001063d12000398.jpg) no-repeat;
+  width:1200px;
+  height:398px;
+  margin:0 auto;
+  position:relative;
+}
+.time{
+  position:absolute;
+  top:122px;
+  left:46%;
+  line-height:22px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+<div class="content3">
+<div class="time">还剩 <span id="LeftTime"></span></div>
+</div>
+<script type="text/javascript">
+
+freshTime();
+function freshTime(){
+	var nTime,eTime,lTime,d,h,m,s;
+	nTime = new Date();
+	eTime = new Date("2015/10/20,12:30:40");
+	lTime = parseInt((eTime.getTime() - nTime.getTime())/1000);
+	d = parseInt(lTime/(24*60*60));
+	h = parseInt(lTime/(60*60)%24);
+	m = parseInt(lTime/60%60);
+	s = parseInt(lTime%60);
+	document.getElementById("LeftTime").innerHTML = d+"天"+h+"小时"+m+"分钟"+s+"秒";
+	if (lTime<=0) {
+		document.getElementById("LeftTime").innerHTML = "团购结束";
+		clearInterval(sh);
+	}
+}    
+	
+	var sh = setInterval(freshTime,500);
+</script>
+</body>
+</html>
